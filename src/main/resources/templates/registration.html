@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+</head>
+<body>
+<div>
+    <form action="#" method="post" th:object="${userForm}" th:action="@{/registration}">
+        <h2>Регистрация</h2>
+        <div>
+            <input type="text" th:field="*{username}" placeholder="Username"
+                        autofocus="true"/>
+        </div>
+        <div>
+            <input type="password" th:field="*{password}" placeholder="Password"/>
+        </div>
+        <div>
+            <input type="email" th:field="*{email}" placeholder="Email"/>
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+        </div>
+    </form>
+    <a href="/">Главная</a>
+</div>
+</body>
+</html>
+

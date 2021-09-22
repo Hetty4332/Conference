@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+<h1>Расписание докладов</h1>
+
+<table border="1">
+    <tr>
+        <th>
+            Дата доклада
+        </th>
+        <th>
+            Название доклада
+        </th>
+        <th>
+            Время доклада
+        </th>
+        <th>
+            Автор доклада
+        </th>
+
+    </tr>
+    <tr th:each="schedule : ${schedules}">
+        <td th:utext="${schedule.date.getDate()} + '.' + ${schedule.date.getMonth()}"></td>
+        <td th:utext="${schedule.talk.getName()}"></td>
+        <td th:utext="${schedule.date.getHours()}+':' +${schedule.date.getMinutes()} "></td>
+    </tr>
+</table>
+<p th:utext="${currUser}"></p>
+</body>
+</html>
