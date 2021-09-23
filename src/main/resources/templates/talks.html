@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example</title>
+    <title>talks</title>
+    <meta charset="utf-8">
 </head>
 <body>
 <h1>Расписание докладов</h1>
@@ -15,12 +16,23 @@
           Время доклада
         </th>
     </tr>
-    <tr th:each="schedule : ${schedules}">
-        <td th:utext="${schedule.date.getDate()} + '.' + ${schedule.date.getMonth()}"></td>
-        <td th:utext="${schedule.talk.getName()}"></td>
-        <td th:utext="${schedule.date.getHours()}+':' +${schedule.date.getMinutes()} "></td>
-        <td th:utext="${schedule.talk.getAuthor()}"></td>
+    <tr th:each="talk : ${talks}">
+        <td th:utext="${talk.getName()}"></td>
+        <td th:utext="${talk.schedule.date.getDate()} + '.' + ${talk.schedule.date.getMonth()}"></td>
     </tr>
 </table>
+<div>
+<form th:action="@{/talks/{login}(login=${currUser})}" method="post" th:object="${talk}">
+    <div>
+        <input type="text" th:field="*{name}"/>
+    </div>
+    <div>
+        <input type="date" th:field="*{schedule.date}"/>
+    </div>
+    <div>
+    <input type="submit" th:value="создать"/>
+    </div>
+</form>
+</div>
 </body>
 </html>

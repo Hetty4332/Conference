@@ -28,6 +28,6 @@
         <td th:utext="${schedule.date.getHours()}+':' +${schedule.date.getMinutes()} "></td>
     </tr>
 </table>
-<p th:utext="${currUser}"></p>
+<a th:href="@{/talks/{id}(id=${currUser})}">мои доклады</a>
 </body>
 </html>
