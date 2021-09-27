@@ -5,12 +5,27 @@
     <title>Регистрация</title>
 </head>
 <body>
-<h1>Login</h1>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><label> Email: <input type="email" name="email"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3" >
+            <form th:action="@{/login}" method="post">
+            <div class="form-login">
+                <h4>Welcome back.</h4>
+   <label> User Name : <input type="text" name="username" class="form-control input-sm chat-input"/> </label>
+                </br>
+    <label> Password: <input type="password" name="password" class="form-control input-sm chat-input"/> </label>
+                </br>
+                <div class="wrapper">
+                    <input type="submit" class="btn btn-primary btn-block btn-large" th:value="Вход"/>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

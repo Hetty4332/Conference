@@ -1,6 +1,8 @@
 package com.example.conference.controller;
 
+import com.example.conference.model.Schedule;
 import com.example.conference.model.Talk;
+import com.example.conference.model.User;
 import com.example.conference.reposiroty.TalkRepository;
 import com.example.conference.reposiroty.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class TalkController {
@@ -39,7 +43,9 @@ public class TalkController {
     {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)principal;
-        talk.getUsers().add(userRepository.findByUsername(user.getUsername()));
+        Set<User> speackers = new HashSet<>();
+        speackers.add(userRepository.findByUsername(user.getUsername()));
+        talk.setUsers(speackers);
         talkRepository.save(talk);
         return "talks";
     }

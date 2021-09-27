@@ -2,6 +2,7 @@ package com.example.conference.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,5 +21,6 @@ public class Schedule {
     @OneToOne
     private Talk talk;
     @Column
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date date;
 }

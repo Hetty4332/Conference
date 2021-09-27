@@ -5,7 +5,6 @@
 </head>
 <body>
 <h1>Расписание докладов</h1>
-
 <table border="1">
     <tr>
         <th>
@@ -20,7 +19,6 @@
         <th>
             Автор доклада
         </th>
-
     </tr>
     <tr th:each="schedule : ${schedules}">
         <td th:utext="${schedule.date.getDate()} + '.' + ${schedule.date.getMonth()}"></td>
