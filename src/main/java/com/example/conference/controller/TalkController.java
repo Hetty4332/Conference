@@ -1,7 +1,6 @@
 package com.example.conference.controller;
 
 import com.example.conference.model.Talk;
-import com.example.conference.model.User;
 import com.example.conference.reposiroty.TalkRepository;
 import com.example.conference.reposiroty.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
