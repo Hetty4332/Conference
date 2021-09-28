@@ -5,6 +5,7 @@ import com.example.conference.model.Status;
 import com.example.conference.model.User;
 import com.example.conference.reposiroty.RoleRepository;
 import com.example.conference.reposiroty.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,23 +19,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-
+@RequiredArgsConstructor
 @Service("userDetailsServiceImpl")
 public class UserDetailsServiceImpl implements UserDetailsService {
     @PersistenceContext
     private EntityManager em;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    RoleRepository roleRepository;
-    @Autowired
-    PasswordEncoder passwordEncoder;
 
+    private final UserRepository userRepository;
 
-    @Autowired
-    public UserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final RoleRepository roleRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
