@@ -26,7 +26,7 @@ public class MainController {
     private ScheduleRepository scheduleRepository;
 
 
-    @GetMapping("/main")
+    @GetMapping("/")
     public String getSchedule(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)principal;
